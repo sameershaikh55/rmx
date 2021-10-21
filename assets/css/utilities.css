@@ -1,0 +1,226 @@
+.text-primary {
+  color: #ff7e00 !important;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn.outlined {
+  position: relative;
+  color: #d86b00;
+  background: #fff;
+  border-radius: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-right: 4rem;
+  padding: 1vw 0;
+  transition: 0.4s ease;
+}
+
+@media screen and (min-width: 1400px) {
+  .btn.outlined {
+    padding: 1rem 0;
+  }
+}
+
+.btn.outlined:hover {
+  transform: scale(1.05);
+}
+
+.btn.outlined * {
+  color: #d86b00;
+}
+
+.btn.outlined::after {
+  position: absolute;
+  content: "";
+  left: -5px;
+  right: -5px;
+  top: -5px;
+  bottom: -5px;
+  border: 1px solid #fff;
+  border-radius: 56px;
+}
+
+@media screen and (max-width: 1200px) {
+  .btn.outlined::after {
+    left: -4px;
+    right: -4px;
+    top: -4px;
+    bottom: -4px;
+  }
+}
+
+.btn.outlined.inverted {
+  background-color: #ff7e00;
+  color: #fff !important;
+}
+.btn.outlined * {
+  color: #fff !important;
+}
+
+.btn.primary-inverted {
+  margin-right: 0;
+  font-weight: 700;
+  border-color: #000;
+  outline-color: #fff;
+  outline-width: 1px;
+}
+
+.bg-black {
+  background-color: #202020 !important;
+}
+
+.img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 1560px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+@media screen and (min-width: 1400px) {
+  .img-container {
+    max-width: 1168px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .img-container {
+    justify-content: center;
+  }
+}
+
+.img-container .item {
+  flex-basis: 33.33%;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 33%;
+  padding: 2vw 1.5vw;
+  margin: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  .img-container .item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .img-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.img-container .item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.img-container .item img:first-child {
+  margin-left: 0;
+}
+
+.img-hover-effect-wrapper img,
+.hover-effect-wrapper {
+  transition: 0.4s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.img-hover-effect-wrapper:hover img,
+.hover-effect-wrapper:hover {
+  box-shadow: rgba(119, 119, 119, 0.35) 0px 5px 15px;
+  border-color: #d86b00;
+}
+
+.heading-underlined {
+  display: flex;
+}
+
+.heading-underlined.start {
+  justify-content: flex-start;
+}
+
+.heading-underlined.end {
+  justify-content: flex-end;
+}
+
+.heading-underlined h1 {
+  margin-bottom: 5rem;
+  border-bottom: 4px solid #fe7800;
+  display: inline-block;
+  position: relative;
+}
+
+.heading-underlined.top h1 {
+  border-bottom: 0;
+  border-top: 4px solid #fe7800;
+}
+
+.heading-underlined.end h1 {
+  padding-right: var(--section-padding);
+  margin-right: var(--align-margin);
+}
+
+.heading-underlined.start h1 {
+  padding-left: var(--section-padding);
+  margin-left: var(--align-margin);
+}
+
+@media screen and (min-width: 1400px) {
+  .heading-underlined .heading {
+    border: 0 !important;
+    width: 1120px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: left;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .heading-underlined .heading::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background-color: #fe7800;
+    width: 200%;
+    bottom: 0;
+    right: 0;
+  }
+
+  .heading-underlined.top .heading::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background-color: #fe7800;
+    width: 200%;
+    bottom: 0;
+    right: 0;
+    bottom: unset;
+    top: 0;
+  }
+
+  .heading-underlined.end .heading {
+    text-align: right;
+  }
+
+  .heading-underlined.end .heading::after {
+    right: unset;
+  }
+}

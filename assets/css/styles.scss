@@ -1,0 +1,2135 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --section-padding: 10vw;
+  --align-margin: -10vw;
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --section-padding: 7vw;
+    --align-margin: -7vw;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  :root {
+    --section-padding: 5vw;
+    --align-margin: -5vw;
+  }
+}
+
+$primary-color: #d86b00;
+$primary-color-light: #ff7e00;
+$primary-color-text: #fe7800;
+$primary-dark: #151515;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Rajdhani", sans-serif;
+  color: #fff;
+}
+
+body {
+  background: $primary-dark;
+  padding-top: 118px;
+}
+
+#dark-overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  bottom: 0;
+  background: #000;
+  opacity: 0.8;
+  z-index: 2;
+  transition: 0.2s ease;
+
+  &.active {
+    left: 0;
+  }
+}
+
+h1 {
+  font-size: 5.4vw;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 75.6px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 6.9vw;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 12vw;
+  }
+}
+
+h2 {
+  font-size: 3.4vw;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 47.6px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 5.5vw;
+  }
+}
+
+h3 {
+  font-size: 1.85vw;
+
+  @media screen and (max-width: 767px) {
+    font-size: 2.9vw;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 7vw;
+  }
+}
+
+section,
+#footer {
+  padding-left: var(--section-padding);
+  padding-right: var(--section-padding);
+}
+
+hr {
+  border: 0;
+  border-top: 5px solid $primary-color-text;
+  margin-bottom: 2rem;
+}
+
+#navbar {
+  background: #000;
+  padding: 2rem 4vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  .wrapper {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  * {
+    font-size: 1.4vw;
+    font-weight: bold;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 19.6px;
+    }
+  }
+
+  a {
+    transition: 0.4s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .logo {
+    width: 17.5vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 245px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 40vw;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      margin-right: 3vw;
+      position: relative;
+
+      @media screen and (max-width: 1340px) {
+        margin-right: 2vw;
+      }
+
+      &.active::after {
+        position: absolute;
+        content: "";
+        height: 3px;
+        width: 140%;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $primary-color-text;
+        transition: 0.4s ease;
+      }
+
+      &:hover {
+        &.active::after {
+          width: 160%;
+        }
+      }
+    }
+  }
+
+  .account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .hamburger {
+    width: 35px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .nav-sm {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    padding-top: 2rem;
+    background: #fff;
+    z-index: 2;
+    width: 90%;
+    transition: 0.5s ease;
+
+    &.active {
+      left: 0;
+    }
+
+    #close {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 3rem;
+      color: #151515;
+      z-index: 2;
+    }
+
+    * {
+      color: #151515;
+      font-size: 2rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      li {
+        width: 100%;
+
+        &::after {
+          display: none;
+        }
+
+        a {
+          display: block;
+          width: 100%;
+          padding: 1rem;
+          border-bottom: 1px solid #151515;
+          width: 90%;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        &.active {
+          a {
+            border-bottom-width: 4px;
+            border-bottom-color: $primary-color-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+#hero {
+  position: relative;
+  text-align: center;
+  height: 50vw;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media screen and (min-width: 1400px) {
+    height: 700px;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 80vw;
+  }
+
+  @media screen and (max-width: 575px) {
+    height: 100vw;
+  }
+
+  .main-heading {
+    position: relative;
+    font-size: 4.45vw;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 62.3px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 8vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 9vw;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0.7vw;
+      height: 3px;
+      background-color: $primary-color-text;
+      width: 60%;
+
+      @media screen and (min-width: 1400px) {
+        bottom: 0.5rem;
+      }
+    }
+  }
+
+  .sub-heading {
+    font-size: 1.8vw;
+    margin-bottom: 1vw;
+    font-weight: 500;
+
+    @media screen and (max-width: 767px) {
+      font-size: 2.5vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 4vw;
+    }
+  }
+
+  .btn {
+    width: 12.18vw;
+    font-size: 1.2vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 170.52px;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 10rem;
+      padding: 1rem 0;
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 575px) {
+      width: 8rem;
+      font-size: 0.775rem;
+    }
+  }
+
+  .mouse {
+    width: 2vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 28px;
+      bottom: 2rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 4vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      width: 5vw;
+    }
+  }
+}
+
+// ******************************************************** FIRST PAGE (Landing) *****************************************************************
+
+#hero.landing {
+  background-image: url("../images/bg-squad-server-landing-with-gradient.png");
+}
+
+#main-slider {
+  height: 50vw;
+
+  @media screen and (max-width: 767px) {
+    height: 80vw;
+  }
+
+  @media screen and (max-width: 575px) {
+    height: 100vw;
+  }
+
+  .swiper-button-next {
+    @media screen and (max-width: 767px) {
+      right: 45px;
+    }
+
+    @media screen and (max-width: 575px) {
+      right: 10px;
+    }
+  }
+
+  .swiper-button-prev {
+    @media screen and (max-width: 767px) {
+      left: 45px;
+    }
+
+    @media screen and (max-width: 575px) {
+      left: 10px;
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: var(--section-padding);
+    padding-right: var(--section-padding);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:nth-child(1) {
+      background-image: url("../images/bg-squad-server-landing-with-gradient.png");
+    }
+
+    &:nth-child(2) {
+      background-image: url("../images/bg-squad-server-landing-with-gradient.png");
+    }
+
+    &:nth-child(3) {
+      background-image: url("../images/bg-squad-server-landing-with-gradient.png");
+    }
+
+    .main-heading {
+      font-size: 4.65vw;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 65.1px;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 6vw;
+      }
+    }
+
+    .main-heading::after {
+      top: 0;
+      bottom: unset;
+      width: 22%;
+    }
+
+    .sub-heading {
+      font-size: 1.9vw;
+      margin-bottom: 1vw;
+      font-weight: 500;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 26.6px;
+      }
+
+      @media screen and (max-width: 940px) {
+        margin-top: -0.5rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 2.5vw;
+      }
+    }
+
+    .btns-container {
+      width: 25vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (min-width: 1400px) {
+        width: 350px;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 32vw;
+      }
+
+      @media screen and (max-width: 575px) {
+        width: 65vw;
+      }
+
+      .btn {
+        width: 10.7vw;
+        font-size: 1.2vw;
+        padding-left: 0;
+        padding-right: 0;
+
+        @media screen and (min-width: 1400px) {
+          width: 149.9px;
+          font-size: 18px;
+        }
+
+        @media screen and (max-width: 767px) {
+          width: 13.5vw;
+          font-size: 1.5vw;
+        }
+
+        @media screen and (max-width: 575px) {
+          width: 30vw;
+          font-size: 3.7vw;
+          margin: 0.75rem 0;
+        }
+      }
+    }
+  }
+}
+
+#servers {
+  position: relative;
+  padding-top: 2.5vw;
+  padding-bottom: 3vw;
+  background-image: url("../vectors/bg-game-servers.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 80vw;
+  background-position-y: -2vw;
+  background-position-x: 9.5vw;
+
+  .heading {
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 350px;
+      }
+    }
+  }
+
+  img.dots-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8vw;
+  }
+}
+
+#fivem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-image: url("../vectors/bg-fivem-server-hosting.svg");
+  background-repeat: no-repeat;
+  background-size: 81vw;
+  background-position-y: 0px;
+  background-position-x: 9vw;
+  padding-top: 6vw;
+  padding-bottom: 4vw;
+
+  @media screen and (min-width: 1400px) {
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    height: 5px;
+    width: 90%;
+    background-color: #fe7800;
+  }
+
+  .logo {
+    transition: 0.4s ease;
+
+    @media screen and (min-width: 1400px) {
+      margin-left: 2rem;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .content {
+    max-width: 63vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    @media screen and (max-width: 767px) {
+      max-width: 75vw;
+      text-align: center;
+    }
+
+    .desc {
+      font-size: 1.5vw;
+      text-align: right;
+
+      @media screen and (min-width: 1400px) {
+        width: 882px;
+        font-size: 21px;
+      }
+
+      @media screen and (max-width: 767px) {
+        text-align: center;
+        font-size: 2.5vw;
+      }
+    }
+  }
+
+  .logo {
+    max-width: 13vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 182px;
+    }
+
+    @media screen and (max-width: 767px) {
+      max-width: 21vw;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  img.dots-bottom-left {
+    position: absolute;
+    left: -2.2vw;
+    bottom: -50px;
+    width: 8.5vw;
+  }
+}
+
+#blogs {
+  padding-top: 1rem;
+
+  .heading {
+    margin-bottom: 0;
+    padding-left: 10.5vw;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 920px;
+      }
+    }
+  }
+
+  #blog-slider-splide {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .splide__arrow {
+      background-color: transparent;
+      border: 0;
+      width: 3vw;
+
+      @media screen and (max-width: 767px) {
+        width: 7vw;
+      }
+
+      @media screen and (max-width: 575px) {
+        width: 12vw;
+        top: 35%;
+        transform: translateY(-35%);
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .splide__arrow--next {
+      right: -3em;
+
+      @media screen and (max-width: 1600px) {
+        right: -1.5em;
+      }
+
+      @media screen and (max-width: 767px) {
+        right: -32px;
+      }
+
+      @media screen and (max-width: 575px) {
+        right: 1em;
+      }
+    }
+
+    .splide__pagination {
+      display: none;
+    }
+
+    .splide__arrow--prev {
+      left: -3em;
+
+      @media screen and (max-width: 1600px) {
+        left: -32px;
+      }
+
+      @media screen and (max-width: 767px) {
+        left: -1.5em;
+      }
+
+      @media screen and (max-width: 575px) {
+        left: 1em;
+      }
+    }
+
+    .splide__arrow:disabled {
+      display: none;
+    }
+  }
+
+  .cards-container {
+    .splide__slide {
+      padding: 0 1rem;
+    }
+
+    .card {
+      font-size: 36px;
+      border-radius: 12px;
+      overflow: hidden;
+      border-width: 2px;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .body {
+        background: #fff;
+        text-align: center;
+        padding: 2rem;
+        padding-bottom: 4vw;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        @media screen and (max-width: 1200px) {
+          padding: 2rem 0.7vw;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding-bottom: 8vw;
+        }
+
+        * {
+          color: $primary-color-light;
+        }
+
+        h3 {
+          margin-bottom: 1rem;
+
+          @media screen and (min-width: 1400px) {
+            font-size: 25.6px;
+          }
+        }
+
+        .btn {
+          font-size: 1.2vw;
+          width: 9.7vw;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+
+          @media screen and (min-width: 1400px) {
+            font-size: 18px;
+            width: 135.8px;
+          }
+
+          @media screen and (max-width: 767px) {
+            width: 18vw;
+            font-size: 2vw;
+          }
+
+          @media screen and (max-width: 575px) {
+            width: 35vw;
+            font-size: 4vw;
+            padding: 3vw 0;
+          }
+
+          &::after {
+            border-width: 1px;
+            border-color: $primary-color-text;
+          }
+        }
+      }
+    }
+
+    .splide__slide {
+      transition: 0.4s ease;
+    }
+
+    .splide__slide {
+      transform: scale(0.9);
+    }
+
+    .splide__slide.is-next {
+      transform: scale(0.95);
+    }
+
+    .splide__slide.is-active {
+      transform: scale(1);
+    }
+  }
+}
+
+#games {
+  position: relative;
+  padding: 0;
+  top: -1px;
+  background-image: url("../images/bg-best-games_img-with-overy-and-text.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 15vw;
+  padding-bottom: 7.5vw;
+  padding-left: var(--section-padding);
+  padding-right: var(--section-padding);
+
+  @media screen and (min-width: 1400px) {
+    padding-top: 20vw;
+    padding-bottom: 10vw;
+  }
+
+  @media screen and (min-width: 1920px) {
+    padding-bottom: 12vw;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: 25vw;
+    padding-bottom: 15vw;
+  }
+
+  .heading,
+  .sub-heading,
+  .offer {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .heading {
+    font-size: 9vw;
+    line-height: 0.75;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 126px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 10vw;
+      text-align: center !important;
+      line-height: 1;
+    }
+  }
+
+  .sub-heading {
+    font-weight: 500;
+    font-size: 2.55vw;
+    text-align: right;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 35.7px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 4.8vw;
+      text-align: center !important;
+    }
+  }
+
+  .offer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column-reverse;
+    }
+
+    a {
+      text-align: center;
+      width: 12.45vw;
+      font-size: 1.3vw;
+      margin-right: 4vw;
+
+      @media screen and (min-width: 1400px) {
+        width: 174.3px;
+        font-size: 18px;
+        margin-right: 56px;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 205px;
+        padding: 1rem 0;
+        margin-top: 1rem;
+        font-size: 3vw;
+      }
+
+      @media screen and (max-width: 576px) {
+        font-size: 4vw;
+      }
+    }
+
+    .text {
+      font-size: 5vw;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 70px;
+      }
+    }
+  }
+}
+
+#locations {
+  padding-top: 2vw;
+  padding-bottom: 5vw;
+  position: relative;
+  top: -2px;
+  background: $primary-color-light;
+  z-index: -1;
+
+  h1 {
+    @media screen and (max-width: 767px) {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+  }
+
+  .map {
+    max-width: 1507px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+
+    @media screen and (min-width: 1400px) {
+      max-width: 1120px;
+    }
+  }
+}
+
+// ***************************************************** SECOND PAGE (Terms of service) **********************************************************
+
+#hero.tos {
+  background-image: url("../images/bg-hero-tos.png");
+
+  .main-heading::after {
+    width: 37%;
+  }
+}
+
+#tos {
+  padding-bottom: 2rem;
+
+  h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.825vw;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 25.55px;
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.9vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 2.5vw;
+    }
+  }
+
+  #refund-policy {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          right: 370px;
+        }
+      }
+    }
+  }
+
+  #vps-terms {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          left: 780px;
+        }
+      }
+    }
+  }
+
+  #failure-renew {
+    .heading {
+      @media screen and (min-width: 767px) {
+        font-size: 4.6vw !important;
+      }
+
+      @media screen and (min-width: 1400px) {
+        font-size: 64.4px;
+      }
+    }
+  }
+
+  #server-setup {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          left: 420px;
+        }
+      }
+    }
+  }
+
+  #server-performance {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          right: 20px;
+        }
+      }
+    }
+  }
+
+  #data-loss {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          left: 790px;
+        }
+      }
+    }
+  }
+
+  #copyright-policy {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          right: 540px;
+        }
+      }
+    }
+  }
+
+  #accounts {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          left: 130px;
+        }
+      }
+    }
+  }
+
+  #liability {
+    .heading {
+      @media screen and (min-width: 1400px) {
+        &::after {
+          right: 830px;
+        }
+      }
+    }
+  }
+
+  section {
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+  }
+}
+
+#refund-policy {
+  background-image: url("../images/bg-service-refund-policy.png");
+  background-size: 70vw;
+  background-position-y: -3vw !important;
+}
+
+#vps-terms {
+  background-image: url("../images/bg-vps-terms.png");
+  background-size: 70vw;
+  background-position-y: -1vw !important;
+}
+
+#server-setup {
+  background-image: url("../images/bg-server-time.png");
+  background-size: 85vw;
+  background-position-y: 3vw !important;
+}
+
+#data-loss {
+  background-image: url("../images/bg-data-loss.png");
+  background-size: 82vw;
+  background-position-y: 0vw !important;
+}
+
+#copyright-policy {
+  background-image: url("../images/bg-copyright-policy.png");
+  background-size: 82vw;
+  background-position-y: 2vw !important;
+}
+
+#accounts {
+  background-image: url(../images/bg-account-security.png);
+  background-size: 81vw;
+  background-position-y: 2vw !important;
+}
+
+// ***************************************************** THIRD PAGE (Game server) *****************************************************************
+
+#hero.game-server {
+  background-image: url("../images/bg-game-server-hosting-with-gradient.png");
+}
+
+#game-servers {
+  padding-top: 2rem;
+  position: relative;
+  background-image: url("../images/bg-game-servers-page.png");
+  background-repeat: no-repeat;
+  background-position-x: -10vw;
+  background-position-y: -11.5vw;
+  background-size: 117vw;
+
+  .heading {
+    margin-bottom: 1.5vw;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 650px;
+      }
+    }
+  }
+
+  .dots-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8.4vw;
+  }
+
+  .dots-bottom-left {
+    position: absolute;
+    bottom: -10vw;
+    left: 0;
+    width: 8.4vw;
+  }
+
+  hr {
+    margin-left: var(--align-margin);
+    max-width: 844px;
+  }
+}
+
+#realms-hosting-panel {
+  padding-top: 12vw;
+  padding-bottom: 8vw;
+  background-image: url("../images/bg-realms-hosting-with-color.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 20vw;
+    padding-bottom: 17vw;
+  }
+
+  .heading,
+  .sub-heading,
+  .showcase {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .heading {
+    text-align: right;
+    line-height: 0.7;
+  }
+
+  .sub-heading {
+    text-align: right;
+    font-size: 2.4vw;
+    font-weight: 500;
+
+    @media screen and (max-width: 1400px) {
+      font-size: 33.6px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 3.1vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 3.8vw;
+    }
+  }
+
+  .showcase {
+    margin-top: 4rem;
+
+    .row {
+      @media screen and (max-width: 767px) {
+        --bs-gutter-x: 0;
+      }
+    }
+
+    .img-wrap {
+      border: 1px solid #000;
+      padding: 0.5rem;
+      padding-bottom: 0.25rem;
+      border-radius: 55px;
+      width: 55.2vw;
+
+      @media screen and (min-width: 1400px) {
+        width: 772.8px;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin-bottom: 2rem;
+        width: 80vw;
+      }
+
+      img {
+        border-radius: 50px;
+        width: 100%;
+      }
+    }
+    .btn {
+      display: block;
+      width: 17vw;
+      font-size: 1.65vw;
+      text-align: center;
+      padding: 1.5vw 0;
+      border-radius: 60px;
+
+      @media screen and (min-width: 1400px) {
+        width: 238px;
+        font-size: 23px;
+        padding: 1.5rem 0;
+      }
+
+      @media screen and (min-width: 575px) {
+        margin-bottom: 2.8vw;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 25vw;
+        font-size: 2.2vw;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 30w;
+        font-size: 3vw;
+      }
+
+      &::after {
+        left: -8px;
+        right: -8px;
+        top: -8px;
+        bottom: -8px;
+        border-radius: 64px;
+
+        @media screen and (max-width: 1100px) {
+          left: -5px;
+          right: -5px;
+          top: -5px;
+          bottom: -5px;
+        }
+      }
+    }
+  }
+}
+
+.pattern-bg {
+  background-image: url("../images/bg-reviews.png");
+  background-repeat: no-repeat;
+  background-position-y: -8vw;
+}
+
+#reviews {
+  position: relative;
+  padding-top: 5vw;
+
+  .heading {
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 830px;
+      }
+    }
+  }
+
+  .vertical-line {
+    position: absolute;
+    left: 50%;
+    top: 25vw;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-left: 0.3vw dashed #fe7800;
+    height: 83vw;
+
+    @media screen and (min-width: 1400px) {
+      top: 355px;
+      border-width: 4px;
+      height: 1200px;
+    }
+
+    @media screen and (min-width: 1800px) {
+      height: 1290px;
+    }
+
+    @media screen and (min-width: 2000px) {
+      height: 1350px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      height: 91vw;
+      top: 28vw;
+    }
+
+    @media screen and (max-width: 767px) {
+      left: 9.5vw;
+      height: 110vw;
+      top: 31vw;
+    }
+
+    @media screen and (max-width: 622px) {
+      top: 35vw;
+    }
+
+    @media screen and (max-width: 575px) {
+      left: 7.5vw;
+      top: 44vw;
+      height: 63% !important;
+    }
+
+    @media screen and (max-width: 477px) {
+      top: 46vw;
+      height: 116vw;
+    }
+
+    @media screen and (max-width: 355px) {
+      top: 49.5vw;
+      height: 120vw;
+    }
+  }
+
+  hr {
+    margin-left: var(--align-margin);
+    max-width: 576px;
+  }
+
+  .reviews {
+    max-width: 61vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1400px) {
+      width: 854px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      max-width: 80vw;
+    }
+
+    @media screen and (max-width: 767px) {
+      max-width: 80vw;
+      margin-right: unset;
+    }
+
+    @media screen and (max-width: 575px) {
+      max-width: 84vw;
+    }
+
+    .item {
+      position: relative;
+      max-width: 25.1vw;
+      background: #fff;
+      border-radius: 3vw;
+      padding: 1vw 2.5vw;
+      margin-right: 0;
+      margin-left: auto;
+      margin-top: 4.2vw;
+      margin-bottom: 9.5vw;
+
+      @media screen and (min-width: 1400px) {
+        width: 351.29px;
+        margin-top: 4rem;
+        margin-bottom: 9rem;
+      }
+
+      @media screen and (max-width: 1200px) {
+        max-width: 34.5vw;
+        padding: 1.5vw 2.8vw;
+      }
+
+      @media screen and (max-width: 767px) {
+        max-width: 100%;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
+      }
+
+      &:first-of-type {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: $primary-color-text;
+        width: 4.7vw;
+        height: 4.7vw;
+        border-radius: 50%;
+        border: 0.4vw solid $primary-dark;
+        outline: 0.2vw solid #fff;
+        top: 0;
+        left: -8.25vw;
+        right: unset;
+
+        @media screen and (min-width: 1400px) {
+          width: 66px;
+          height: 66px;
+          left: -114px;
+          border-width: 5px;
+          outline-width: 2px;
+        }
+
+        @media screen and (max-width: 767px) {
+          left: -6.25vw;
+        }
+      }
+
+      &:nth-child(2n + 1) {
+        @media screen and (min-width: 768px) {
+          text-align: right;
+          margin-right: auto;
+          margin-left: 0;
+
+          &::before {
+            right: -8.25vw;
+            left: unset;
+
+            @media screen and (min-width: 1400px) {
+              right: -114px;
+            }
+          }
+        }
+      }
+
+      .name {
+        font-size: 2.5vw;
+        font-weight: 600;
+        color: $primary-color-text;
+
+        @media screen and (min-width: 1400px) {
+          font-size: 35px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          font-size: 3.5vw;
+        }
+
+        @media screen and (max-width: 767px) {
+          font-size: 5vw;
+        }
+      }
+
+      .content {
+        font-weight: 600;
+        font-size: 0.85vw;
+        color: $primary-color-text;
+
+        @media screen and (min-width: 1400px) {
+          font-size: 12px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          font-size: 1vw;
+        }
+
+        @media screen and (max-width: 767px) {
+          font-size: 2.5vw;
+        }
+      }
+
+      .rating {
+        margin-top: 0.5rem;
+        width: 13.5vw;
+
+        @media screen and (min-width: 1400px) {
+          width: 189px;
+        }
+      }
+    }
+  }
+}
+
+#faq {
+  padding-bottom: 7rem;
+
+  .heading {
+    text-align: center;
+    margin-bottom: 5vw;
+
+    .underline {
+      border-bottom: 5px solid $primary-color-text;
+    }
+  }
+
+  .qas {
+    margin-top: 3rem;
+
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .item {
+      margin: 2rem 0 4rem;
+
+      .question {
+        font-size: 2.5vw;
+        padding-right: 3vw;
+        padding-right: 2rem;
+        position: relative;
+        border-bottom: 8px solid transparent;
+        transition: 0.4s ease;
+        cursor: pointer;
+
+        @media screen and (min-width: 1400px) {
+          font-size: 35px;
+          padding-right: 4rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          font-size: 3.5vw;
+        }
+
+        .toggler {
+          position: absolute;
+          right: 0;
+          transition: 0.4s ease;
+          width: 3vw;
+          top: 0;
+
+          @media screen and (min-width: 1400px) {
+            width: 42px;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+
+        &.close {
+          border-bottom-color: $primary-color-text;
+
+          &::after {
+            transform: rotate(-90deg);
+          }
+
+          .toggler {
+            transform: rotate(-90deg);
+            top: -7px;
+          }
+        }
+      }
+
+      .answer {
+        background-color: $primary-color-text;
+        border-radius: 20px;
+        padding: 2rem 3rem;
+        font-weight: 600;
+        display: none;
+        font-size: 1.095vw;
+
+        @media screen and (min-width: 1400px) {
+          font-size: 15.33px;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 1.5rem;
+          font-size: 2.5vw;
+        }
+
+        &:first-of-type {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// ******************************************************* FOURTH PAGE (Fivem server) *****************************************************************
+
+#hero.fivem-server {
+  background-image: url("../images/bg-fivem-server-hosting-with-gradient.png");
+
+  .sub-heading {
+    margin-top: -0.5rem;
+
+    @media screen and (max-width: 1200px) {
+      margin-top: 0;
+    }
+  }
+}
+
+#payment-plans {
+  position: relative;
+  padding-top: 3rem;
+  background-image: url("../images/bg-plans.png");
+  background-repeat: no-repeat;
+  background-position-x: 120px;
+  background-position-y: 40px;
+  background-size: 86.5vw;
+
+  .heading {
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 610px;
+      }
+    }
+  }
+
+  .dots-top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8.3vw;
+  }
+
+  .plans {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .plan {
+      position: relative;
+      margin-top: 5rem;
+      margin-bottom: 7rem;
+      position: relative;
+      max-width: 352px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      border: 5px solid #000;
+      background-color: $primary-color-text;
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -279px;
+        left: 0;
+        right: 0;
+        clip-path: polygon(50% 31%, 0 0, 100% 0);
+        height: 280px;
+        background-color: $primary-color-text;
+      }
+
+      .plan-img {
+        position: absolute;
+        background: #fff;
+        width: 65%;
+        left: 50%;
+        top: -4rem;
+        transform: translateX(-50%);
+        border-radius: 80px;
+
+        @media screen and (max-width: 1200px) {
+          width: 75%;
+        }
+
+        @media screen and (max-width: 992px) {
+          width: 65%;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -8px;
+          left: -8px;
+          right: -8px;
+          bottom: -8px;
+          border: #fff 2px solid;
+          border-radius: 80px;
+        }
+
+        .img {
+          width: 53%;
+        }
+      }
+
+      .plan-body {
+        padding: 6rem 2.5rem 1.2rem;
+
+        .name {
+          font-size: 33px;
+
+          @media screen and (max-width: 1220px) {
+            font-size: 28px;
+          }
+
+          @media screen and (max-width: 1120px) {
+            font-size: 24px;
+          }
+        }
+
+        .specs {
+          margin-top: 1rem;
+          margin-bottom: 4rem;
+
+          .item {
+            margin-bottom: 1.5rem;
+            font-size: 22px;
+            border-bottom: 1px solid #4d4d4d;
+          }
+        }
+
+        .btn {
+          margin-left: auto;
+          margin-right: auto;
+          width: 125px;
+          padding: 0.75rem 1.75rem;
+          transition: 0.4s ease;
+          &::after {
+            transition: 0.4s ease;
+          }
+
+          &:hover {
+            opacity: 0.9;
+
+            &::after {
+              border-color: #000;
+            }
+          }
+
+          @media screen and (max-width: 1220px) {
+            width: 110px;
+            font-size: 20px;
+          }
+
+          @media screen and (max-width: 1120px) {
+            width: 90px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#fivem.fivem-hosting {
+  background-image: url("../images/bg-fivem-hosting-white.png");
+  background-color: $primary-color-text;
+  padding-top: 12.5vw;
+  padding-bottom: 11vw;
+  background-position-x: 150px;
+  background-position-y: 100px;
+  background-size: 82vw;
+
+  .top-line {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+  }
+
+  .bottom-line {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+#know-fivem {
+  padding-top: 3rem;
+
+  .heading {
+    margin-bottom: 4rem;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        right: 620px;
+      }
+    }
+  }
+
+  .img {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .text {
+    font-size: 35px;
+    padding: 1em 0 1rem;
+
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media screen and (max-width: 1200px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 16px;
+    }
+  }
+}
+
+#locations.fivem-hosting {
+  background: unset;
+  padding-top: 3rem;
+  overflow: hidden;
+
+  .heading {
+    margin-bottom: 7rem;
+
+    @media screen and (min-width: 1400px) {
+      &::after {
+        left: 530px;
+      }
+    }
+  }
+}
+
+#realms-hosting-panel.fivem-server {
+  background-image: url("../images/bg-realms-hosting-with-light-color.png");
+
+  @media screen and (max-width: 575px) {
+    padding-top: 24vw;
+  }
+}
+
+#help {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-image: url("../images/bg-need-help.png");
+  background-repeat: no-repeat;
+  background-size: 83.2vw;
+  background-position-x: 9vw;
+  background-position-y: 4vw;
+  overflow: hidden;
+
+  .heading {
+    font-size: 4.3vw;
+    margin-bottom: 5vw;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 60px;
+      margin-bottom: 5rem;
+
+      &::after {
+        left: 20px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 4.6vw;
+    }
+  }
+
+  .we-are-here {
+    @media screen and (min-width: 1400px) {
+      width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .text {
+    margin-right: 3rem;
+
+    @media screen and (max-width: 767px) {
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .sub-heading {
+      font-size: 3.95vw;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 55px;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 4.5vw;
+        text-align: center;
+      }
+    }
+
+    .para {
+      font-size: 1.55vw;
+      margin-bottom: 3vw;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 22px;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 2.55vw;
+        text-align: center;
+      }
+    }
+  }
+
+  .img {
+    width: 124.5vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 1745.44px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    width: 16.6vw;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    font-size: 1.5vw;
+
+    @media screen and (min-width: 1400px) {
+      width: 232px;
+      font-size: 21px;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-right: auto;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      width: 21.6vw;
+      font-size: 2vw;
+    }
+  }
+}
+
+#footer {
+  position: relative;
+  background-color: #000;
+
+  .wrapper {
+    @media screen and (min-width: 1400px) {
+      width: 1135px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  a {
+    transition: 0.4s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -5.8vw;
+  }
+
+  .navbar {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    * {
+      font-size: 1.6vw;
+
+      @media screen and (min-width: 1400px) {
+        font-size: 22.4px;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 1rem;
+      }
+    }
+
+    .logo {
+      width: 17.5vw;
+
+      @media screen and (min-width: 1400px) {
+        width: 245px;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 25vw;
+        margin-bottom: 1rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 40vw;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .nav {
+      @media screen and (max-width: 767px) {
+        flex-direction: column !important;
+        align-items: flex-start !important ;
+      }
+
+      .nav-item {
+        margin-left: 7.2vw;
+
+        @media screen and (max-width: 767px) {
+          margin: 1rem 0;
+        }
+
+        @media screen and (min-width: 768px) {
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .offer {
+    font-size: 1.5vw;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 21px;
+    }
+
+    * {
+      @media screen and (max-width: 767px) {
+        font-size: 1rem;
+      }
+    }
+
+    img {
+      width: 3.2vw;
+
+      @media screen and (min-width: 1400px) {
+        width: 44.8px;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 2rem;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 1.5vw;
+    font-weight: bold;
+
+    @media screen and (min-width: 1400px) {
+      font-size: 21px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
+}
